@@ -17,3 +17,12 @@ pub fn read_int_lines(input: impl AsRef<str>) -> Result<Vec<u64>, ParseIntError>
         .map(|line| line.parse::<u64>())
         .collect()
 }
+
+pub fn read_binary_map(input: impl AsRef<str>, true_value: char) -> Vec<Vec<bool>> {
+    input
+        .as_ref()
+        .split("\n")
+        .filter(|line| !line.is_empty())
+        .map(|line| line.chars().map(|c| c == true_value).collect())
+        .collect()
+}
